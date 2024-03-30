@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameInfo" load_steps=3 format=3 uid="uid://of0x7cwcpc8o"]
+
+[ext_resource type="Script" path="res://scripts/game_info.gd" id="1_3ji6l"]
+[ext_resource type="Texture2D" uid="uid://cyctum1sqfhmh" path="res://games/secret_files/assets/secret_files.png" id="1_ucgyq"]
+
+[resource]
+script = ExtResource("1_3ji6l")
+name = "Secret Files"
+description = "Read the [s]secret[/s] [i]files[/i], but be aware of the [shake level=20]dangers[/shake]"
+image = ExtResource("1_ucgyq")
