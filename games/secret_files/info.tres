@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="GameInfo" load_steps=3 format=3 uid="uid://of0x7cwcpc8o"]
+[gd_resource type="Resource" script_class="GameInfo" load_steps=5 format=3 uid="uid://of0x7cwcpc8o"]
 
 [ext_resource type="Script" path="res://scripts/game_info.gd" id="1_3ji6l"]
 [ext_resource type="Texture2D" uid="uid://cyctum1sqfhmh" path="res://games/secret_files/assets/secret_files.png" id="1_ucgyq"]
+[ext_resource type="Script" path="res://scripts/game_input.gd" id="2_6g2tt"]
+
+[sub_resource type="Resource" id="Resource_ysckl"]
+script = ExtResource("2_6g2tt")
+inputs = 15
+description = "Move"
 
 [resource]
 script = ExtResource("1_3ji6l")
 name = "Secret Files"
 description = "Read the [s]secret[/s] [i]files[/i], but be aware of the [shake level=20]dangers[/shake]"
 image = ExtResource("1_ucgyq")
+inputs = Array[ExtResource("2_6g2tt")]([SubResource("Resource_ysckl")])
