@@ -29,9 +29,15 @@ func _ready() -> void:
 		player_inst.add_child(file_grabber_inst)
 		file_grabber_inst.files_taken.connect(_on_files_taken.bind(player_inst))
 		
+		var hbox = HBoxContainer.new()
+		var color_rect = ColorRect.new()
+		color_rect.custom_minimum_size = Vector2.ONE * 100
+		color_rect.color = player_data.primary_color
+		hbox.add_child(color_rect)
 		var label = Label.new()
-		label.text = "%s: %d" % [player_data.name, player_data.local_score]
-		score_container.add_child(label)
+		hbox.add_child(label)
+		label.text = str(player_data.local_score)
+		score_container.add_child(hbox)
 	
 	kill_timer.timeout.connect(_on_kill_timeout)
 	score_timer.timeout.connect(_on_score_timeout)
@@ -42,8 +48,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for i in Game.players.size():
 		var player_data = Game.players[i]
-		var label = score_container.get_child(i) as Label
-		label.text = "%s: %d" % [player_data.name, player_data.local_score]
+		var label = score_container.get_child(i).get_child(1) as Label
+		label.text = str(player_data.local_score)
 
 
 func _on_files_taken(player: Chimerin) -> void:
